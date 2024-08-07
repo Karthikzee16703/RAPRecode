@@ -126,7 +126,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDRTRIndusIT\RPARecodeIndusIT.csproj">
+    <ProjectReference Include="..\RPARecodeIndusIT\RPARecodeIndusIT.csproj">
       <Project>{f0b335c4-fa35-4c8d-a329-3bf7a8af2bc0}</Project>
       <Name>RPARecodeIndusIT</Name>
     </ProjectReference>

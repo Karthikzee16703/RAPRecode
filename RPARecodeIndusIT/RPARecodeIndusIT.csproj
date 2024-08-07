@@ -117,7 +117,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDRTR\RPARecode.csproj">
+    <ProjectReference Include="..\RPARecode\RPARecode.csproj">
       <Project>{c0035132-0747-44cf-95ef-819c11920f10}</Project>
       <Name>RPARecode</Name>
     </ProjectReference>
