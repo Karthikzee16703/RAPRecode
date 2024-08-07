@@ -193,6 +193,7 @@ namespace RPARecode
             string GK_DPM_outcome = string.Empty;
             string LK_DCAD_outcome = string.Empty;
             string GK_DCAD_outcome = string.Empty;
+            string FINAL_outcome = string.Empty;
 
             for (int i = 0; i < Recode_Data.Rows.Count; i++)
             {
@@ -252,9 +253,64 @@ namespace RPARecode
                     }
                 }
 
-                FillDataTable("update RECODE_TABLE set LK_OUTCOME = '"+LK_outcome+"' , GK_OUTCOME = '"+GK_outcome+ "' WHERE RequestID = "+ RequestID + "", Connection_String);
+                FillDataTable("update RECODE_TABLE set LK_OUTCOME = '" + LK_outcome + "' , GK_OUTCOME = '" + GK_outcome + "' WHERE RequestID = " + RequestID + "", Connection_String);
 
-                                                
+
+                // Define Final outcome
+
+                if (LK_outcome == "Not Found" && GK_outcome == "Not Found")
+                {
+                    //No action
+                    FINAL_outcome = "No action";
+
+                    FillDataTable("update RECODE_TABLE set REQUEST_STATUS ='Completed', FINAL_outcome = '" + FINAL_outcome + "'  WHERE RequestID = " + RequestID + "", Connection_String);
+
+                }
+
+                else if (LK_outcome == "Not Found" && GK_outcome == "STR")
+                {
+                    // case H 
+                    // step0- DPM+L Key-> no results(doesn’t exist)
+                    // step1- DCAD+L Key-->No results
+
+                    //No action
+                    FINAL_outcome = "No action";
+
+                    FillDataTable("update RECODE_TABLE set REQUEST_STATUS ='Completed', FINAL_outcome = '" + FINAL_outcome + "'  WHERE RequestID = " + RequestID + "", Connection_String);
+
+
+                }
+
+
+                else if (LK_outcome == "Not Found" && GK_outcome == "UNSTR")
+                {
+                    // case G
+                    // step0- DPM+L Key-> no results(doesn’t exist)
+                    // step1- DCAD+L Key-->No results
+
+                    //No action
+                    FINAL_outcome = "No action";
+
+                    FillDataTable("update RECODE_TABLE set REQUEST_STATUS ='Completed', FINAL_outcome = '" + FINAL_outcome + "'  WHERE RequestID = " + RequestID + "", Connection_String);
+
+
+                }
+
+                else if (LK_outcome == "Not Found" && GK_outcome == "Not Found")
+                {
+
+                }
+
+
+                else if (LK_outcome == "Not Found" && GK_outcome == "Not Found")
+                {
+
+                }
+
+                else if (LK_outcome == "Not Found" && GK_outcome == "Not Found")
+                {
+
+                }
 
 
 
